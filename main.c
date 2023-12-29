@@ -44,7 +44,7 @@ int main()
             contaletra = strlen(nome[iterador]);
 
             if(contaletra==0){
-                printf("É OBRIGATÓRIO INFORMAR O NOME!!!\n");
+                printf("E OBRIGATORIO INFORMAR O NOME!!!\n");
             }
         }
         while(contaletra==0);
@@ -82,7 +82,21 @@ int main()
         printf("Dados do %io aluno:\n", iterador);
         printf("Nome => %s\n", nome[iterador]);
         printf("Idade => %i\n", idade[iterador]);
-        printf("Genero => %c\n", genero[iterador]);
+
+        //criar uma variável
+        if(genero[iterador] == 'f' || genero[iterador] == 'F')
+        {
+            printf("Genero => Feminino\n");
+        }else if(genero[iterador]=='m'|| genero[iterador]=='M')
+        {
+            printf("Genero => Masculino\n");
+        }else
+        {
+            printf("Genero => Outros(nao definido)\n");
+        }
+
+
+        //printf("Genero => %c\n", genero[iterador]);
         printf("Cidade => %s\n", localidade[iterador]);
         printf("Estado => %s\n", estado[iterador]);
         printf("\n");
