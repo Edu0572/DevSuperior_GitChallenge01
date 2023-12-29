@@ -4,7 +4,7 @@
 int main()
 {
     //Declarar variáveis
-    int numeroAlunos, iterador;
+    int numeroAlunos, iterador, contaletra;
 
     //Fazer uso da estrutura de repetição do-while para garantir que o número máximo de alunos seja 10
     do
@@ -36,17 +36,32 @@ int main()
     //Fazer uso da estrutura de repetição for para dar entrada de dados, em cada elemento do vetor
     for(iterador = 1; iterador <= numeroAlunos; iterador++)
     {
-        printf("\nDigite o nome do %io aluno: ", iterador);
-        fseek(stdin,0,SEEK_END);//LIMPEZA DE BUFFER
-        gets(nome[iterador]);
+        do
+        {
+            printf("\nDigite o nome do %io aluno: ", iterador);
+            fseek(stdin,0,SEEK_END);//LIMPEZA DE BUFFER
+            gets(nome[iterador]);
+            contaletra = strlen(nome[iterador]);
+
+            if(contaletra==0){
+                printf("É OBRIGATÓRIO INFORMAR O NOME!!!\n");
+            }
+        }
+        while(contaletra==0);
 
         printf("Informe a idade: ");
-
         scanf("%d", &idade[iterador]);
 
-        printf("Informe o genero (M/F/O): ");
-        fseek(stdin,0,SEEK_END);//LIMPEZA DE BUFFER
-        scanf("%c", &genero[iterador]);
+        do
+        {
+            printf("Informe o genero (M/F/O): ");
+            fseek(stdin,0,SEEK_END);//LIMPEZA DE BUFFER
+            scanf("%c", &genero[iterador]);
+            if(genero[iterador]!='F'&&genero[iterador]!='f'&&genero[iterador]!='M'&&genero[iterador]!='m'&&genero[iterador]!='O'&&genero[iterador]!='o')
+            {
+                printf("Selecione um genero valido M(masculino), F(feminino) ou O (outros)\n");
+            }
+        }while(genero[iterador]!='F'&&genero[iterador]!='f'&&genero[iterador]!='M'&&genero[iterador]!='m'&&genero[iterador]!='O'&&genero[iterador]!='o');
 
         printf("Informe a cidade que o aluno mora: ");
         fseek(stdin,0,SEEK_END);//LIMPEZA DE BUFFER
@@ -54,7 +69,6 @@ int main()
 
         printf("Informe o estado: ");
         fseek(stdin,0,SEEK_END);//LIMPEZA DE BUFFER
-
         gets(estado[iterador]);
 
         printf("\n");
