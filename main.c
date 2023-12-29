@@ -30,35 +30,50 @@ int main()
     int idade [numeroAlunos];
     char genero [numeroAlunos];
     char localidade[numeroAlunos][50];
-    char estado [numeroAlunos][2];
+    char estado [numeroAlunos][50];
     char sexo [numeroAlunos];
 
     //Fazer uso da estrutura de repetição for para dar entrada de dados, em cada elemento do vetor
     for(iterador = 1; iterador <= numeroAlunos; iterador++)
     {
-        printf("Digite o nome do %io aluno: ", iterador);
+        printf("\nDigite o nome do %io aluno: ", iterador);
         fseek(stdin,0,SEEK_END);//LIMPEZA DE BUFFER
         gets(nome[iterador]);
 
         printf("Informe a idade: ");
+
         scanf("%d", &idade[iterador]);
 
         printf("Informe o genero (M/F/O): ");
         fseek(stdin,0,SEEK_END);//LIMPEZA DE BUFFER
-        scanf("%c", &genero[numeroAlunos]);
+        scanf("%c", &genero[iterador]);
 
-        printf("Informe a cidade que o aluno mora:");
+        printf("Informe a cidade que o aluno mora: ");
         fseek(stdin,0,SEEK_END);//LIMPEZA DE BUFFER
         gets(localidade[iterador]);
 
         printf("Informe o estado: ");
         fseek(stdin,0,SEEK_END);//LIMPEZA DE BUFFER
+
         gets(estado[iterador]);
 
-        printf("Informe o curso que o aluno esta matriculado: ");
-        fseek(stdin,0,SEEK_END);//LIMPEZA DE BUFFER
+        printf("\n");
 
     }
+
+    //Fazer uso da estrutura de repetição for para iterar por cada vetor e exibir o conteúdo de cada elemento.
+    printf("\nLista de Alunos Cadastrados para o Curso de Logica de Programacao\n");
+    for(iterador = 1; iterador <= numeroAlunos; iterador++)
+    {
+        printf("Dados do %io aluno:\n", iterador);
+        printf("Nome => %s\n", nome[iterador]);
+        printf("Idade => %i\n", idade[iterador]);
+        printf("Genero => %c\n", genero[iterador]);
+        printf("Cidade => %s\n", localidade[iterador]);
+        printf("Estado => %s\n", estado[iterador]);
+        printf("\n");
+    }
+
 
 
 
